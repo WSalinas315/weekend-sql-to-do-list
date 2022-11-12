@@ -13,4 +13,5 @@ VALUES
     ('Rake Leaves','Rake & bag leaves. Take them to compost.', 'FALSE', NULL),
     ('Feed Cat','Wet food for the kitty!', 'FALSE', NULL),
     ('New Tires','Purchase new tires and setup installment appointment.', 'FALSE', NULL),
-    ('Finish Weekend Project','ALL THE CODE, ALL THE COMMITS! GIT GOOD NEWB!', 'FALSE', NULL);
+    ('Finish Weekend Project','ALL THE CODE, ALL THE COMMITS! GIT GOOD NEWB!', 'FALSE', NULL),
+    ('Watch the Vikings win!', 'Tune in as the Vikings & Bills battle it out.', 'FALSE', NULL);
