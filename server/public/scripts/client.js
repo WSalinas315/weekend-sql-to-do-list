@@ -2,15 +2,17 @@ $(document).ready(onReady);
 
 // on document load
 function onReady(){
-
     // setup click listeners
-
+    setupListeners();
     // call get
     getTasks();
 }
 
-// CLICK listeners
-
+// CLICK listeners function
+function setupListeners(){
+    $('#tasksTableBody').on('click', '.complete-btn', markComplete);
+    $('#tasksTableBody').on('click', '.delete-btn', deleteTask);
+}
 
 // GET function to retrieve tasks
 function getTasks(){
