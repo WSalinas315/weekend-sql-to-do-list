@@ -12,6 +12,8 @@ function onReady(){
 function setupListeners(){
     $('#tasksTableBody').on('click', '.complete-btn', markComplete);
     $('#tasksTableBody').on('click', '.delete-btn', deleteTask);
+    $('#addContainer').on('click', '.add-btn', setupSubmit);
+    $('#addContainer').on('click', '.submit-btn', addTask);
 }
 
 // GET function to retrieve tasks
@@ -47,6 +49,17 @@ function renderTasks(taskList){
                 <td><button class="delete-btn" data-id="${task.id}">Delete</button></td>
         `);
     }
+}
+
+// Setup add task space
+function setupSubmit(){
+    $('#addContainer').empty();
+    $('#addContainer').append(`
+        <h2>Add Task</h2><br />
+        <input type="text" id="nameInput" value="" placeholder="Task Name">
+        <input type="text" id="detailsInput" value="" placeholder="Details">
+        <button class="submit-btn">Submit Task</button>
+    `);
 }
 
 // POST TASKS

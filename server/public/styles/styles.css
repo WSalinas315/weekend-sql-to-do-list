@@ -1,7 +1,13 @@
 .complete{
     color: green;
+    background-color: rgb(206, 206, 206);
+    text-decoration: line-through;
 }
 
 .incomplete{
     color: black;
+}
+
+.column-head{
+    font-weight: bold;
 }

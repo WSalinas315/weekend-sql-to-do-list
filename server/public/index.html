@@ -13,17 +13,20 @@
     <h1>My To Do List</h1>
 </header>
 <body>
+    <div id="addContainer">
+        <button class="add-btn">Add Task</button>
+    </div>
     <div class="current-list">
         <h2>Pending Tasks</h2>
         <table id="tasksTable">
             <thead>
                 <tr>
-                    <th>Task Name</th>
-                    <th>Details</th>
-                    <th>Status</th>
-                    <th>Completion Date</th>
-                    <th>Mark Complete</th>
-                    <th>Remove Task</th>
+                    <th class="column-head">Task Name</th>
+                    <th class="column-head">Details</th>
+                    <th class="column-head">Status</th>
+                    <th class="column-head">Completion Date</th>
+                    <th class="column-head">Mark Complete</th>
+                    <th class="column-head">Remove Task</th>
                 </tr>
             </thead>
             <tbody id="tasksTableBody">
