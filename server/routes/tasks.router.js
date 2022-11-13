@@ -29,7 +29,17 @@ tasksRouter.post('/', (req, res) => {
 });
 
 // tasksRouter PUT
-
+tasksRouter.put('/:id', (res, req) => {
+    const taskID = req.params.id;
+    const taskQuery = `UPDATE "tasks-list" SET "complete" = "true" WHERE "id" = $1;`;
+    pool.query(taskQuery, [taskID]).then(() => {
+        console.log('Task ID:', taskID, 'has been marked complete.');
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(`Error making query ${taskQuery}, error is:`, error);
+        res.sendStatus(500);
+    });
+});
 
 // tasksRouter DELETE
 
