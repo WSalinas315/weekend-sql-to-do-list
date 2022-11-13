@@ -28,7 +28,7 @@ table{
 }
 
 table, tr{
-    padding: 7px 10px;
+    padding: 2px 10px;
     border: 1px rgba(0, 0, 0, 0.75) solid;
     border-collapse: collapse;
     text-align: left;
