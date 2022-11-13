@@ -118,6 +118,15 @@ function markComplete(){
 
 // DELETE function to remove tasks from the database
 function deleteTask(){
-
+    const id = $(this).data("id");
+    $.ajax({
+        method: 'DELETE',
+        url: `/tasks/${id}`
+    }).then(function(response){
+        console.log(`Task with id ${id} has been deleted.`);
+        getTasks();
+    }).catch(function(error){
+        alert('deleteTask function failure with error:', error);
+    });
 }
 
