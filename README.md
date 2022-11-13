@@ -1,9 +1,10 @@
-# Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+# Weekend SQL To Do List
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+This to-do list is styled as if taken on notepad paper and features the ability to add tasks, mark them as complete, delete tasks and filter them by their completion status. This allows the checklist user to stay on top of their responsibilities with just a few clicks. 
+Completed tasks will have a green background with faded text that has been crossed out to easily identify which tasks are already done.
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+## Sample image
+
+![alt text](https://github.com/WSalinas315/weekend-sql-to-do-list/ToDoSample.png?raw=true)
