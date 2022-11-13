@@ -79,7 +79,7 @@ function setupSubmit(){
     console.log('In setupSubmit function.');
     $('#addContainer').empty();
     $('#addContainer').append(`
-        <h2>Add Task</h2><br />
+        <h2>Add Task</h2>
         <input type="text" id="nameInput" value="" placeholder="Task Name">
         <input type="text" id="detailsInput" value="" placeholder="Details">
         <button class="submit-btn">Submit Task</button>
