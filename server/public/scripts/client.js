@@ -102,7 +102,17 @@ function addTask(){
 
 // PUT function to modify tasks
 function markComplete(){
-
+    const id = $(this).data("id");
+    console.log('In markComplete function with task id#', id);
+    $.ajax({
+        method: 'PUT',
+        url: `/tasks/${id}`
+    }).then(function(){
+        console.log(`Updated task with id ${id} to complete.`);
+        getTasks();
+    }).catch(function(error){
+        alert('markComplete function failure with error:', error);
+    });
 }
 
 // DELETE function to remove tasks from the database
