@@ -16,7 +16,7 @@ tasksRouter.get('/', (req, res) => {
 
 // tasksRouter GET for complete filter
 tasksRouter.get('/complete', (req, res) => {
-    let taskQuery = `SELECT * FROM "tasks-list" WHERE "complete" = 'TRUE' ORDER BY "compDate";`;
+    let taskQuery = `SELECT * FROM "tasks-list" WHERE "complete" = 'TRUE' ORDER BY "taskName";`;
     pool.query(taskQuery).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
@@ -27,7 +27,7 @@ tasksRouter.get('/complete', (req, res) => {
 
 // tasksRouter GET for incomplete filter
 tasksRouter.get('/incomplete', (req, res) => {
-    let taskQuery = `SELECT * FROM "tasks-list" WHERE "complete" = 'FALSE' ORDER BY "compDate";`;
+    let taskQuery = `SELECT * FROM "tasks-list" WHERE "complete" = 'FALSE' ORDER BY "taskName";`;
     pool.query(taskQuery).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
@@ -39,8 +39,8 @@ tasksRouter.get('/incomplete', (req, res) => {
 // tasksRouter POST
 tasksRouter.post('/', (req, res) => {
     const newTask = req.body;
-    const taskQuery = `INSERT INTO "tasks-list" ("taskName","taskDetails","complete","compDate")
-                        VALUES ($1, $2, $3, NULL)`;
+    const taskQuery = `INSERT INTO "tasks-list" ("taskName","taskDetails","complete")
+                        VALUES ($1, $2, $3)`;
     pool.query(taskQuery, [newTask.taskName, newTask.taskDetails, newTask.complete]).then((result) => {
         console.log('POST result from DB:', result);
         res.sendStatus(201);
