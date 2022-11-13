@@ -22,8 +22,6 @@ body{
 }
 
 table{
-    margin-left:auto; 
-    margin-right:auto;
     background-color: rgba(250, 248, 216, 0.82);
 }
 
@@ -50,4 +48,8 @@ header{
 
 .delete-btn, .complete-btn{
     font-family: 'Times New Roman', Times, serif;
+}
+
+#titleText{
+    margin-top: 15px;
 }
