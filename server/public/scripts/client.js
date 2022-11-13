@@ -68,8 +68,8 @@ function renderTasks(taskList){
                 <td class="normal-weight">${task.taskDetails}</td>
                 <td>${task.complete == true ? 'Complete' : 'Incomplete'}</td>
                 <td>${task.compDate == null ? '' : task.compDate}</td>
-                <td><button class="complete-btn" data-id="${task.id}" ${task.complete == true ? 'disabled' : ''}>Mark Complete</button></td>
-                <td><button class="delete-btn" data-id="${task.id}">Delete</button></td>
+                <td><button class="btn complete-btn btn-success" data-id="${task.id}" ${task.complete == true ? 'disabled' : ''}>Mark Complete</button></td>
+                <td><button class="btn delete-btn btn-danger" data-id="${task.id}">Delete</button></td>
         `);
     }
 }
@@ -79,10 +79,10 @@ function setupSubmit(){
     console.log('In setupSubmit function.');
     $('#addContainer').empty();
     $('#addContainer').append(`
-        <h2>Add Task</h2>
+        <h3>Add Task</h3>
         <input type="text" id="nameInput" value="" placeholder="Task Name">
         <input type="text" id="detailsInput" value="" placeholder="Details">
-        <button class="submit-btn">Submit Task</button>
+        <button type="button" class="btn submit-btn btn-success">Submit Task</button>
     `);
 }
 
@@ -91,7 +91,7 @@ function setToDefault(){
     console.log('In setToDefault function');
     $('#addContainer').empty();
     $('#addContainer').append(`
-        <button class="add-btn">Add Task</button>
+        <button type="button" class="btn add-btn btn-success">Add Task</button>
     `);
 }
 

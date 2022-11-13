@@ -36,8 +36,18 @@ table, tr{
 
 td{
     padding: 2px 10px;
+    font-weight: bold;
+    font-family: fantasy;
 }
 
 .normal-weight{
-    font-weight: 100;
+    font-size: smaller;
+}
+
+header{
+    font-family: cursive;
+}
+
+.delete-btn, .complete-btn{
+    font-family: 'Times New Roman', Times, serif;
 }
