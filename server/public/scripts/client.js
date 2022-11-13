@@ -43,7 +43,7 @@ function renderTasks(taskList){
         $('#tasksTableBody').append(`
             <tr class="${task.complete == true ? 'complete' : 'incomplete'}">
                 <td>${task.taskName}</td>
-                <td>${task.taskDetails}</td>
+                <td class="normal-weight">${task.taskDetails}</td>
                 <td>${task.complete == true ? 'Complete' : 'Incomplete'}</td>
                 <td>${task.compDate == null ? '' : task.compDate}</td>
                 <td><button class="complete-btn" data-id="${task.id}" ${task.complete == true ? 'disabled' : ''}>Mark Complete</button></td>

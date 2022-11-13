@@ -1,10 +1,12 @@
 body{
     text-align: center;
+    background-image: url("lined-paper.png");
+    font-weight: bold;
 }
 
 .complete{
-    color: gray;
-    background-color: rgba(13, 161, 0, 0.25);
+    color: rgb(155, 155, 155);
+    background-color: rgba(16, 195, 0, 0.254);
     text-decoration: line-through;
 }
 
@@ -13,20 +15,28 @@ body{
 }
 
 .column-head{
-    font-weight: bold;
+    font-weight: bolder;
+    font-size: larger;
+    text-align: center;
 }
 
 table{
     margin-left:auto; 
     margin-right:auto;
+    background-color: rgba(250, 248, 216, 0.82);
 }
 
 table, tr{
-    padding: 5px 10px;
+    padding: 7px 10px;
     border: 1px rgba(0, 0, 0, 0.75) solid;
     border-collapse: collapse;
+    text-align: left;
 }
 
 td{
     padding: 2px 10px;
+}
+
+.normal-weight{
+    font-weight: 100;
 }
