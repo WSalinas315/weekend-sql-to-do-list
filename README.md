@@ -7,4 +7,4 @@ Completed tasks will have a green background with faded text that has been cross
 
 ## Sample image
 
-![alt text](https://github.com/WSalinas315/weekend-sql-to-do-list/ToDoSample.png?raw=true)
+![My Image](ToDoSample.png)
