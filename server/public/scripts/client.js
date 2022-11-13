@@ -24,7 +24,7 @@ function getTasks(){
 		method: 'GET',
 		url: '/tasks',
 	}).then(function (response) {
-		console.log(response);
+        console.log('Successful GET');
         // call render function
 		renderTasks(response);
 	}).catch(function (error) {
@@ -40,7 +40,7 @@ function renderTasks(taskList){
     for(let i=0; i<taskList.length; i++){
         let task = taskList[i];
         $('#tasksTableBody').append(`
-            <tr class="${task.complete == 'TRUE' ? 'complete' : 'incomplete'}">
+            <tr class="${task.complete == 'true' ? 'complete' : 'incomplete'}">
                 <td>${task.taskName}</td>
                 <td>${task.taskDetails}</td>
                 <td>${task.complete}</td>
@@ -53,6 +53,7 @@ function renderTasks(taskList){
 
 // Setup add task space
 function setupSubmit(){
+    console.log('In setupSubmit function.');
     $('#addContainer').empty();
     $('#addContainer').append(`
         <h2>Add Task</h2><br />
@@ -62,8 +63,43 @@ function setupSubmit(){
     `);
 }
 
-// POST TASKS
+// Return addContainer div to default state
+function setToDefault(){
+    console.log('In setToDefault function');
+    $('#addContainer').empty();
+    $('#addContainer').append(`
+        <button class="add-btn">Add Task</button>
+    `);
+}
 
+// POST TASKS
+function addTask(){
+    console.log('Attempting to add a task...');
+    if($('#nameInput').val() == ''){
+        alert('Task name cannot be empty. Please give your task a name and try again.');
+        return;
+    } else if($('#detailsInput').val() == ''){
+        alert('Task details cannot be empty. Please give your task some detail and try again.');
+        return;
+    }
+    let newTask = {
+        taskName: $('#nameInput').val(),
+        taskDetails: $('#detailsInput').val(),
+        complete: false,
+        compDate: NULL
+    };
+    $.ajax({
+        method: 'POST',
+        url: '/tasks',
+        data: newTask
+    }).then(function(response){
+        console.log('Successful POST');
+        setToDefault();
+        getTasks();
+    }).catch(function(error){
+        alert('addTasks function has failed to POST to DB. Error:', error);
+    });
+}
 
 // PUT TASKS
 
