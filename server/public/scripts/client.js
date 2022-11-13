@@ -44,8 +44,8 @@ function renderTasks(taskList){
             <tr class="${task.complete == true ? 'complete' : 'incomplete'}">
                 <td>${task.taskName}</td>
                 <td>${task.taskDetails}</td>
-                <td>${task.complete}</td>
-                <td>${task.compDate}</td>
+                <td>${task.complete == true ? 'Complete' : 'Incomplete'}</td>
+                <td>${task.compDate == null ? '' : task.compDate}</td>
                 <td><button class="complete-btn" data-id="${task.id}" ${task.complete == true ? 'disabled' : ''}>Mark Complete</button></td>
                 <td><button class="delete-btn" data-id="${task.id}">Delete</button></td>
         `);
