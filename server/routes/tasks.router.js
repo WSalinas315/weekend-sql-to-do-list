@@ -14,6 +14,28 @@ tasksRouter.get('/', (req, res) => {
     });
 });
 
+// tasksRouter GET for complete filter
+tasksRouter.get('/complete', (req, res) => {
+    let taskQuery = `SELECT * FROM "tasks-list" WHERE "complete" = 'TRUE' ORDER BY "compDate";`;
+    pool.query(taskQuery).then((result) => {
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log(`Error making query: ${taskQuery}, error is:`, error);
+        res.sendStatus(500);
+    });
+});
+
+// tasksRouter GET for incomplete filter
+tasksRouter.get('/incomplete', (req, res) => {
+    let taskQuery = `SELECT * FROM "tasks-list" WHERE "complete" = 'FALSE' ORDER BY "compDate";`;
+    pool.query(taskQuery).then((result) => {
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log(`Error making query: ${taskQuery}, error is:`, error);
+        res.sendStatus(500);
+    });
+});
+
 // tasksRouter POST
 tasksRouter.post('/', (req, res) => {
     const newTask = req.body;

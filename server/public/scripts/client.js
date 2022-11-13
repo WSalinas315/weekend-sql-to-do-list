@@ -14,6 +14,7 @@ function setupListeners(){
     $('#tasksTableBody').on('click', '.delete-btn', deleteTask);
     $('#addContainer').on('click', '.add-btn', setupSubmit);
     $('#addContainer').on('click', '.submit-btn', addTask);
+    $('#filterToggle').on('click', '#filter-btn', filterTasks);
 }
 
 // GET function to retrieve tasks
@@ -22,8 +23,29 @@ function getTasks(){
 	// ajax call to server to get koalas
 	$.ajax({
 		method: 'GET',
-		url: '/tasks',
+		url: '/tasks'
 	}).then(function (response) {
+        console.log('Successful GET');
+        // call render function
+		renderTasks(response);
+	}).catch(function (error) {
+		console.log('Error in GET:', error);
+	});
+}
+
+// GET function that filters based on user selection
+function filterTasks(){
+    console.log('In filterTasks function');
+    let filterVal = $('#filterInput').val();
+    console.log(filterVal);
+    if(filterVal == 'nofilter'){
+        getTasks();
+        return;
+    }
+    $.ajax({
+        method: 'GET',
+        url: `/tasks/${filterVal}`
+    }).then(function (response) {
         console.log('Successful GET');
         // call render function
 		renderTasks(response);
@@ -39,7 +61,7 @@ function renderTasks(taskList){
     // write DB data to DOM
     for(let i=0; i<taskList.length; i++){
         let task = taskList[i];
-        console.log(task.taskName, 'class is', task.complete);
+        //console.log(task.taskName, 'class is', task.complete);
         $('#tasksTableBody').append(`
             <tr class="${task.complete == true ? 'complete' : 'incomplete'}">
                 <td>${task.taskName}</td>
