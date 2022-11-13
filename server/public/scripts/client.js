@@ -39,13 +39,14 @@ function renderTasks(taskList){
     // write DB data to DOM
     for(let i=0; i<taskList.length; i++){
         let task = taskList[i];
+        console.log(task.taskName, 'class is', task.complete);
         $('#tasksTableBody').append(`
-            <tr class="${task.complete == 'true' ? 'complete' : 'incomplete'}">
+            <tr class="${task.complete == true ? 'complete' : 'incomplete'}">
                 <td>${task.taskName}</td>
                 <td>${task.taskDetails}</td>
                 <td>${task.complete}</td>
                 <td>${task.compDate}</td>
-                <td><button class="complete-btn" data-id="${task.id}">Mark Complete</button></td>
+                <td><button class="complete-btn" data-id="${task.id}" ${task.complete == true ? 'disabled' : ''}>Mark Complete</button></td>
                 <td><button class="delete-btn" data-id="${task.id}">Delete</button></td>
         `);
     }

@@ -4,9 +4,9 @@ const pool = require('../modules/pool');
 
 // tasksRouter GET
 tasksRouter.get('/', (req, res) => {
-    let taskQuery = `SELECT * FROM "tasks-list" ORDER BY "complete" DESC;`;
+    let taskQuery = `SELECT * FROM "tasks-list" ORDER BY "complete";`;
     pool.query(taskQuery).then((result) => {
-        console.log('result.rows:', result.rows); // comment this one if terminal is too spammy
+        //console.log('result.rows:', result.rows); // comment this one if terminal is too spammy
         res.send(result.rows);
     }).catch((error) => {
         console.log(`Error making query: ${taskQuery}, error is:`, error);
@@ -29,9 +29,10 @@ tasksRouter.post('/', (req, res) => {
 });
 
 // tasksRouter PUT
-tasksRouter.put('/:id', (res, req) => {
+tasksRouter.put('/:id', (req, res) => {
+    console.log('id is', req.params.id);
     const taskID = req.params.id;
-    const taskQuery = `UPDATE "tasks-list" SET "complete" = "true" WHERE "id" = $1;`;
+    const taskQuery = `UPDATE "tasks-list" SET "complete" = 'TRUE' WHERE "id" = $1;`;
     pool.query(taskQuery, [taskID]).then(() => {
         console.log('Task ID:', taskID, 'has been marked complete.');
         res.sendStatus(200);
