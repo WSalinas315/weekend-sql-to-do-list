@@ -72,7 +72,7 @@ function setToDefault(){
     `);
 }
 
-// POST TASKS
+// POST function to add tasks
 function addTask(){
     console.log('Attempting to add a task...');
     if($('#nameInput').val() == ''){
@@ -86,7 +86,6 @@ function addTask(){
         taskName: $('#nameInput').val(),
         taskDetails: $('#detailsInput').val(),
         complete: false,
-        compDate: NULL
     };
     $.ajax({
         method: 'POST',
@@ -101,9 +100,13 @@ function addTask(){
     });
 }
 
-// PUT TASKS
+// PUT function to modify tasks
+function markComplete(){
 
+}
 
-// DELETE TASKS
+// DELETE function to remove tasks from the database
+function deleteTask(){
 
+}
 
