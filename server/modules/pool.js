@@ -15,7 +15,7 @@ if(process.env.DATABASE_URL){
     pool = new pg.Pool({
       connectionString: process.envDATABASE_URL,
       ssl: {
-        rejectUnauthorized: false
+        rejectionUnauthorized: false
       }  
     });
 } else{
