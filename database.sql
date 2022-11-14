@@ -2,7 +2,7 @@ CREATE TABLE tasks-list (
     id SERIAL,
     taskName varchar(64),
     taskDetails varchar(128),
-    complete BOOLEAN NOT NULL,
+    complete BOOLEAN NOT NULL
 );
 
 INSERT INTO "tasks-list"
