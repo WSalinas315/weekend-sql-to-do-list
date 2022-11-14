@@ -21,11 +21,11 @@ Completed tasks will have a green background with faded text that has been cross
 6. Navigate out to http://localhost:5000/ to begin using the application.
 
 ## Built With
--Javascript
--CSS
--Bootstrap
--Node.js
--Express
--jQuery
--HTML
--PostgreSQL
+- Javascript
+- CSS
+- Bootstrap
+- Node.js
+- Express
+- jQuery
+- HTML
+- PostgreSQL
